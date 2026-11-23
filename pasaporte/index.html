@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pasaporte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{ /* se pueden sobrescribir con CONFIG.colores */
+  --almagre:#9E3B26; --ocre:#C99A2E; --carbon:#1E1B18; --hueso:#EDE6D6; --piedra:#6E726A; --musgo:#4F6B3A;
+  --papel:#F3EDE0; --tinta:#2A2420;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--carbon);color:var(--tinta);font-family:Montserrat,Arial,sans-serif;}
+body{min-height:100vh;display:flex;justify-content:center}
+.libro{width:100%;max-width:520px;min-height:100vh;background:var(--papel);
+  background-image:radial-gradient(rgba(110,114,106,.10) 1px,transparent 1px);background-size:6px 6px;
+  border-left:6px solid var(--almagre);border-right:6px solid var(--almagre);padding:20px 18px 28px;position:relative}
+.franja{height:14px;margin:-20px -18px 16px;background:
+  repeating-linear-gradient(90deg,var(--carbon) 0 14px,var(--ocre) 14px 28px,var(--almagre) 28px 42px,var(--hueso) 42px 56px)}
+h1,h2{font-family:Cinzel,Georgia,serif;color:var(--almagre);margin:.2em 0;letter-spacing:.04em}
+h1{font-size:1.55rem;text-align:center}
+h2{font-size:1.2rem}
+.sub{text-align:center;font-size:.85rem;color:var(--piedra);margin:0 0 14px}
+p{line-height:1.5;font-size:.95rem;margin:.5em 0}
+.progreso{display:flex;align-items:center;gap:10px;margin:10px 0 16px;font-weight:600;font-size:.9rem}
+.barra{flex:1;height:10px;border-radius:5px;background:#dcd3c0;overflow:hidden}
+.barra i{display:block;height:100%;background:linear-gradient(90deg,var(--almagre),var(--ocre));transition:width .6s}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.slot{background:#fff8;border:2px dashed #cbbfa6;border-radius:12px;padding:8px;text-align:center;cursor:pointer;
+  font-size:.78rem;color:var(--piedra);min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  transition:transform .15s}
+.slot:hover{transform:translateY(-2px)}
+.slot svg{width:96px;height:96px}
+.slot.vacio svg{opacity:.18;filter:grayscale(1)}
+.slot.ok{border:2px solid var(--almagre);color:var(--tinta);background:#fff}
+.slot b{font-family:Cinzel,Georgia,serif;font-size:.8rem}
+.tarjeta{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 0 #cbbfa6}
+.sello-grande{display:flex;justify-content:center;margin:6px 0 4px}
+.sello-grande svg{width:150px;height:150px}
+.sello-grande.estampar svg{animation:estampa .55s cubic-bezier(.3,1.6,.5,1)}
+@keyframes estampa{0%{transform:scale(2.2) rotate(-18deg);opacity:0}100%{transform:scale(1) rotate(-6deg);opacity:1}}
+.opciones{display:grid;gap:8px;margin:12px 0}
+button{font:inherit}
+.op{text-align:left;padding:12px 14px;border-radius:10px;border:2px solid #d9cfba;background:var(--papel);cursor:pointer;font-size:.95rem}
+.op:hover{border-color:var(--ocre)}
+.op.bien{border-color:var(--musgo);background:#e5ecd9}
+.op.mal{border-color:var(--almagre);background:#f4dcd4}
+.btn{display:inline-block;padding:12px 18px;border-radius:999px;border:0;background:var(--almagre);color:var(--hueso);
+  font-weight:600;cursor:pointer;text-decoration:none;font-size:.95rem}
+.btn.sec{background:transparent;color:var(--almagre);border:2px solid var(--almagre)}
+.acciones{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.dato{border-left:4px solid var(--ocre);padding:6px 10px;background:#faf5ea;font-size:.88rem}
+.fuente{font-size:.72rem;color:var(--piedra)}
+.aviso{font-size:.88rem;color:var(--almagre);font-weight:600;min-height:1.3em}
+form label{display:block;font-size:.85rem;font-weight:600;margin:10px 0 4px}
+form input[type=text],form input[type=email]{width:100%;padding:11px;border-radius:8px;border:2px solid #d9cfba;font:inherit;background:var(--papel)}
+.check{display:flex;gap:8px;align-items:flex-start;font-weight:400 !important;font-size:.8rem !important}
+.codigo{font-family:Cinzel,Georgia,serif;font-size:1.6rem;letter-spacing:.12em;text-align:center;color:var(--carbon);
+  background:repeating-linear-gradient(45deg,#f6efe0 0 10px,#efe6d2 10px 20px);border:2px dashed var(--almagre);border-radius:12px;padding:14px;margin:12px 0}
+#guia{position:fixed;right:10px;bottom:10px;z-index:50;display:flex;flex-direction:column;align-items:center;gap:6px;pointer-events:none}
+#guia .g-marco{position:relative;height:min(36vh,320px);aspect-ratio:var(--g-ar,9/16);filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+#guia video,#guia canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#guia .g-ctrl{display:flex;gap:6px;pointer-events:auto}
+#guia .g-play{padding:9px 14px;font-size:.85rem;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+#guia .g-x{border:0;border-radius:50%;width:34px;height:34px;background:var(--carbon);color:var(--hueso);cursor:pointer}
+.libro{padding-bottom:120px}
+details.saber{margin-top:10px;padding:0}
+details.saber summary{cursor:pointer;padding:14px 16px;font-family:Cinzel,Georgia,serif;font-weight:800;color:var(--almagre);list-style:none}
+details.saber summary::-webkit-details-marker{display:none}
+details.saber summary .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--almagre);color:var(--hueso);font-size:.85rem;margin-right:6px}
+details.saber p{padding:0 16px;margin:0 0 12px}
+footer{margin-top:22px;font-size:.7rem;color:var(--piedra);text-align:center;line-height:1.4}
+.oculto{display:none}
+</style>
+</head>
+<body>
+<main class="libro">
+  <div class="franja" aria-hidden="true"></div>
+  <section id="vista"></section>
+  <footer>
+<span id="pie"></span>
+  </footer>
+</main>
+
+<script>document.write('<script src="config'+(new URLSearchParams(location.search).get("lang")==="en"?".en":"")+'.js"><\/script>')</script>
+<script>
+/* Datos del hotel y estaciones: vienen de config.js (lo genera pasaporte.py desde config.json). */
+const CONFIG = window.PASAPORTE.config;
+const E = window.PASAPORTE.estaciones;
+
+/* ====== Textos de la interfaz (es por defecto, en incluido; CONFIG.textos los sobrescribe) ====== */
+const TXT={
+ es:{sello:"Sello",de:"de",sellos:"sellos",escuchar:"Escuchar a",laGuia:"la guía",ocultarGuia:"Ocultar guía",pausa:"Pausa",seguir:"Seguir",otraVez:"Otra vez",
+  bienvenido:"Bienvenido",pasaporte:"Pasaporte",buscaMedallones:"Busca los {n} medallones numerados en los panoramas. Cada uno guarda una pregunta.",
+  llevas:"Llevas {n} de {t}.",desbloqueas:"Con todos los sellos desbloqueas",modelo3d:"un modelo 3D",verRA:", que puedes ver en realidad aumentada desde tu móvil",
+  verPasaporte:"Ver mi pasaporte",cierre:"Cierra esta ventana con la ✕ para empezar el recorrido.",modelo3dT:"Modelo 3D",botonRA:"Verla en tu espacio (RA)",
+  volverPremio:"Volver al premio",introDef:"Recorre el tour y busca los {n} escondidos en los panoramas. En cada uno responde una pregunta.",
+  desbloquear:"Desbloquear el saber",reclamar:"Reclamar mi premio",pista:"Pista: busca los medallones de piedra con un número.",
+  casi:"Casi. Vuelve a leer el texto y prueba otra vez.",sabias:"¿Sabías que…?",fuente:"Fuente",conseguido:"¡Sello conseguido! Llevas {n} de {t}.",
+  completo:"¡Pasaporte completo!",introSaber:"Encontraste todos los sellos. Este es tu premio: lo que guarda este lugar.",tuCertificado:"Tu certificado",
+  nombreCert:"Escribe tu nombre para el certificado. No se envía a ningún sitio: se queda en tu dispositivo.",nombre:"Nombre",tuNombre:"Tu nombre",
+  descargar:"Descargar certificado",compartir:"Compartir",certifica:"certifica que",explorador:"Explorador/a",completoCert:"Pasaporte completo",fecha:"es-CO",
+  aviso:"Este juego no recoge datos personales. Tu progreso se guarda solo en este navegador."},
+ en:{sello:"Stamp",de:"of",sellos:"stamps",escuchar:"Listen to",laGuia:"the guide",ocultarGuia:"Hide guide",pausa:"Pause",seguir:"Resume",otraVez:"Again",
+  bienvenido:"Welcome",pasaporte:"Passport",buscaMedallones:"Find the {n} numbered medallions in the panoramas. Each one holds a question.",
+  llevas:"You have {n} of {t}.",desbloqueas:"With all the stamps you unlock",modelo3d:"a 3D model",verRA:", which you can view in augmented reality on your phone",
+  verPasaporte:"See my passport",cierre:"Close this window with the ✕ to start the tour.",modelo3dT:"3D model",botonRA:"See it in your space (AR)",
+  volverPremio:"Back to the reward",introDef:"Explore the tour and find the {n} hidden in the panoramas. Answer a question at each one.",
+  desbloquear:"Unlock the knowledge",reclamar:"Claim my reward",pista:"Hint: look for the numbered stone medallions.",
+  casi:"Almost. Read the text again and try once more.",sabias:"Did you know…?",fuente:"Source",conseguido:"Stamp collected! You have {n} of {t}.",
+  completo:"Passport complete!",introSaber:"You found all the stamps. This is your reward: what this place holds.",tuCertificado:"Your certificate",
+  nombreCert:"Type your name for the certificate. It is not sent anywhere: it stays on your device.",nombre:"Name",tuNombre:"Your name",
+  descargar:"Download certificate",compartir:"Share",certifica:"certifies that",explorador:"Explorer",completoCert:"Passport complete",fecha:"en-US",
+  aviso:"This game collects no personal data. Your progress is saved only in this browser."}
+};
+const TX=Object.assign({},TXT[CONFIG.idioma]||TXT.es,CONFIG.textos||{});
+document.documentElement.lang=CONFIG.idioma||"es";
+
+/* ====== Sellos: ilustraciones originales en SVG ====== */
+const COL=Object.assign({almagre:"#9E3B26",ocre:"#C99A2E",carbon:"#1E1B18"},CONFIG.colores||{});
+for(const [k,v] of Object.entries(COL)) document.documentElement.style.setProperty("--"+k,v);
+const A=COL.almagre, O=COL.ocre, K=COL.carbon;
+function marco(n, cuerpo){
+  return `<svg viewBox="0 0 200 200" role="img" aria-label="Sello ${n}">
+   <defs><filter id="r${n}"><feTurbulence baseFrequency=".9" numOctaves="2" seed="${n}"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.6 1.25"/><feComposite in="SourceGraphic" operator="in"/></filter></defs>
+   <g filter="url(#r${n})" fill="none" stroke="${A}" stroke-width="5">
+    <circle cx="100" cy="100" r="92"/><circle cx="100" cy="100" r="80" stroke-width="2.5"/>
+    ${Array.from({length:24},(_,i)=>{const a=i*15*Math.PI/180;return `<rect x="97" y="10" width="6" height="${i%2?6:10}" fill="${A}" stroke="none" transform="rotate(${i*15} 100 100)"/>`}).join("")}
+    ${cuerpo}
+    <text x="100" y="172" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="17" fill="${A}" stroke="none" font-weight="800">${n}</text>
+   </g></svg>`;
+}
+const cara = (x,y,s=1)=>`<g transform="translate(${x} ${y}) scale(${s})">
+  <rect x="-22" y="-26" width="44" height="52" rx="8"/><circle cx="-9" cy="-8" r="5"/><circle cx="9" cy="-8" r="5"/>
+  <path d="M-12 8 H12 M-8 8 L-2 20 M8 8 L2 20" /></g>`;
+const SELLOS_SANAGUSTIN = {
+ 1: marco(1,`<path d="M100 40 L100 120 M70 60 L100 120 L130 60 M55 80 L100 120 L145 80" stroke-linecap="round"/>
+             <path d="M70 128 H130 L120 145 H80 Z" fill="${A}"/>`),
+ 2: marco(2, cara(100,92,1.25)+cara(58,108,.75)+cara(142,108,.75)),
+ 3: marco(3,`<path d="M40 80 Q70 65 100 80 T160 80 M40 100 Q70 85 100 100 T160 100"/>
+             <ellipse cx="100" cy="128" rx="22" ry="15" fill="${A}"/><circle cx="90" cy="117" r="6" fill="${A}"/><circle cx="110" cy="117" r="6" fill="${A}"/>
+             <path d="M80 135 L66 147 M120 135 L134 147"/>`),
+ 4: marco(4,`<path d="M100 45 L125 75 L118 115 L100 125 L82 115 L75 75 Z" fill="${A}"/>
+             <circle cx="92" cy="72" r="5" fill="#F3EDE0" stroke="none"/><circle cx="108" cy="72" r="5" fill="#F3EDE0" stroke="none"/>
+             <path d="M100 80 L94 92 H106 Z" fill="${O}" stroke="none"/>
+             <path d="M55 135 Q75 120 90 135 T125 135 T150 128" stroke-width="7" stroke-linecap="round"/>`),
+ 5: marco(5,`<path d="M100 100 m-46 0 a12 12 0 1 1 24 0 a20 20 0 1 1 -40 0 a28 28 0 1 1 56 0 a12 12 0 0 0 12 0 a28 28 0 1 1 56 0" />
+             <text x="100" y="140" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="16" fill="${A}" stroke="none" font-weight="800">1 – 900 d.C.</text>`),
+ 6: marco(6, cara(100,112,1.3)+`<g transform="translate(100 62) scale(.6)"><rect x="-20" y="-24" width="40" height="44" rx="7"/><circle cx="-8" cy="-6" r="4"/><circle cx="8" cy="-6" r="4"/></g>
+             <path d="M86 132 L90 150 M114 132 L110 150" stroke-width="6"/>`),
+ 7: marco(7,`${[70,100,130].map(x=>`<circle cx="${x}" cy="72" r="9" fill="${A}"/><path d="M${x} 82 V118 M${x-18} 88 L${x} 96 L${x+18} 88 M${x} 118 L${x-10} 136 M${x} 118 L${x+10} 136"/>`).join("")}
+             <path d="M35 150 Q100 135 165 150" stroke-width="3"/>`),
+};
+
+/* Arte de cada sello: imagen propia (estacion.imagen), tema integrado, o sello numerado genérico */
+const SELLOS = new Proxy({}, {get:(_,id)=>{
+  const e=E[id-1]||{};
+  if(e.imagen) return `<img src="${esc(e.imagen)}" alt="${TX.sello} ${id}" style="width:100%;height:100%;object-fit:contain">`;
+  if(CONFIG.tema==="san-agustin" && SELLOS_SANAGUSTIN[id]) return SELLOS_SANAGUSTIN[id];
+  return marco(id, `<text x="100" y="122" text-anchor="middle" font-family="Cinzel,Georgia,serif" font-size="64" fill="${A}" stroke="none" font-weight="800">${id}</text>`);
+}});
+
+/* ====== estado ====== */
+const KEY="pasaporte-"+(CONFIG.id||"tour")+"-v1";
+const leer=()=>{try{return JSON.parse(localStorage.getItem(KEY))||{sellos:[]}}catch(e){return {sellos:[]}}};
+const guardar=s=>{try{localStorage.setItem(KEY,JSON.stringify(s))}catch(e){}};
+let estado=leer();
+const tiene=id=>estado.sellos.includes(id);
+const $=s=>document.querySelector(s);
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function ruta(){
+  const m=location.hash.match(/sello=(\d)/);
+  if(m && E[m[1]-1]){ estacion(+m[1]); return guia(String(+m[1])); }
+  if(location.hash.includes("premio")){ premio(); return guia(estado.sellos.length>=E.length?"final":null); }
+  if(location.hash.includes("bienvenida")){ bienvenida(); return guia("bienvenida"); }
+  if(location.hash.includes("modelo")){ vistaModelo(); return guia(null); }
+  pasaporte(); guia(null);
+}
+
+/* ====== Guía en vídeo (avatar sin fondo) ======
+   CONFIG.guia = {nombre, carpeta:"guia/", clips:{bienvenida:"00_bienvenida","1":"01_...", ..., final:"08_final"}}
+   Usa <clip>.webm (VP9 con alfa) donde se puede, y en Safari/iPhone <clip>.mp4 con el verde quitado en un canvas. */
+const G = CONFIG.guia || null;
+let gManifest = null;
+async function guia(clave){
+  const box = document.getElementById("guia");
+  if(box) box.remove();
+  if(!G || !clave || !(G.clips||{})[clave]) return;
+  if(gManifest === null){ try{ gManifest = await (await fetch((G.carpeta||"guia/")+"manifest.json")).json(); }catch(e){ gManifest = {}; } }
+  const stem = G.clips[clave]; if(!gManifest[stem]) return;
+  const base = (G.carpeta||"guia/")+stem, m = gManifest[stem];
+  const safari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent) || /iP(hone|ad|od)/.test(navigator.userAgent);
+  const usarWebm = !G.forzarMp4 && !safari && document.createElement("video").canPlayType('video/webm; codecs="vp9"');
+  const d = document.createElement("div"); d.id = "guia";
+  d.style.setProperty("--g-ar", m.ancho+"/"+m.alto);
+  d.innerHTML = `
+    <div class="g-marco"><video playsinline preload="metadata" poster="${base}.jpg" src="${base}.${usarWebm?"webm":"mp4"}"></video>
+      <canvas class="${usarWebm?"oculto":""}"></canvas></div>
+    <div class="g-ctrl"><button class="btn g-play">▶ ${TX.escuchar} ${esc(G.nombre||TX.laGuia)}</button>
+      <button class="g-x" aria-label="${TX.ocultarGuia}">✕</button></div>`;
+  document.body.appendChild(d);
+  const v = d.querySelector("video"), c = d.querySelector("canvas"), b = d.querySelector(".g-play");
+  if(!usarWebm){ v.style.opacity = 0; c.width = m.ancho; c.height = m.alto;
+    const x = c.getContext("2d", {willReadFrequently:true});
+    const paso = () => { if(v.paused || v.ended) return; x.drawImage(v,0,0,c.width,c.height);
+      const f = x.getImageData(0,0,c.width,c.height), p = f.data;
+      for(let i=0;i<p.length;i+=4){ const r=p[i],g=p[i+1],bl=p[i+2], mx=Math.max(r,bl);
+        if(g>60 && g>mx*1.25){ p[i+3]=0; } else if(g>mx){ p[i+1]=mx; } }
+      x.putImageData(f,0,0); requestAnimationFrame(paso); };
+    v.addEventListener("play", () => requestAnimationFrame(paso)); }
+  b.onclick = () => { if(v.paused){ v.play(); b.textContent = "❚❚ "+TX.pausa; } else { v.pause(); b.textContent = "▶ "+TX.seguir; } };
+  v.onended = () => { b.textContent = "↺ "+TX.otraVez; };
+  d.querySelector(".g-x").onclick = () => { v.pause(); d.remove(); };
+}
+
+/* ====== Bienvenida (se abre al entrar al tour) ====== */
+function bienvenida(){
+  const b=CONFIG.bienvenida||{}, n=estado.sellos.length;
+  $("#vista").innerHTML=`
+   <p class="sub">${esc(CONFIG.hotel)}${CONFIG.lugar?" · "+esc(CONFIG.lugar):""}</p>
+   <h1>${esc(b.titulo||TX.bienvenido)}</h1>
+   <div class="sello-grande estampar">${SELLOS[1]}</div>
+   ${(b.parrafos||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
+   <div class="tarjeta" style="margin:12px 0">
+     <h2>${esc(CONFIG.titulo||TX.pasaporte)}</h2>
+     <p>${TX.buscaMedallones.replace("{n}","<b>"+E.length+"</b>")}
+     ${n?TX.llevas.replace("{n}","<b>"+n).replace("{t}",E.length+"</b>"):""}</p>
+     ${R.modelo3d?`<p>${TX.desbloqueas} <b>${esc(R.modelo3d.titulo||TX.modelo3d)}</b>${R.modelo3d.ar!==false?TX.verRA:""}.</p>`:""}
+   </div>
+   <div class="acciones"><a class="btn" href="#">${TX.verPasaporte}</a></div>
+   <p class="fuente" style="text-align:center">${esc(b.cierre||TX.cierre)}</p>`;
+}
+
+/* ====== Modelo 3D (model-viewer, con realidad aumentada en móvil) ====== */
+const MV_SRC="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js";
+function cargarMV(){ if(customElements.get("model-viewer")||document.getElementById("mvjs")) return;
+  const s=document.createElement("script"); s.type="module"; s.src=MV_SRC; s.id="mvjs"; document.head.appendChild(s); }
+function htmlModelo(m){
+  cargarMV();
+  return `<div class="tarjeta" style="margin-top:14px">
+    <h2>${esc(m.titulo||TX.modelo3dT)}</h2>
+    ${m.texto?`<p>${esc(m.texto)}</p>`:""}
+    <model-viewer src="${esc(m.src)}" ${m.poster?`poster="${esc(m.poster)}"`:""} alt="${esc(m.titulo||TX.modelo3dT)}"
+      camera-controls touch-action="pan-y" auto-rotate rotation-per-second="18deg" shadow-intensity="1" exposure="1.05"
+      ${m.ar!==false?`ar ar-modes="webxr scene-viewer quick-look"`:""} ${m.ios?`ios-src="${esc(m.ios)}"`:""}
+      style="width:100%;height:340px;background:radial-gradient(#fbf7ee,#e6dcc8);border-radius:12px">
+      ${m.ar!==false?`<button slot="ar-button" class="btn" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%)">${TX.botonRA}</button>`:""}
+    </model-viewer>
+    <p class="fuente">${esc(m.credito||"")}</p>
+  </div>`;
+}
+function vistaModelo(){
+  if(!R.modelo3d || estado.sellos.length<E.length){ location.hash=""; return; }
+  $("#vista").innerHTML=htmlModelo(R.modelo3d)+`<div class="acciones"><a class="btn sec" href="#premio">${TX.volverPremio}</a></div>`;
+}
+window.addEventListener("hashchange",ruta);
+
+function pasaporte(){
+  const n=estado.sellos.length, total=E.length;
+  $("#vista").innerHTML=`
+   <h1>${esc(CONFIG.titulo||TX.pasaporte)}</h1>
+   <p class="sub">${esc(CONFIG.hotel)}${CONFIG.lugar?" · "+esc(CONFIG.lugar):""}</p>
+   <p>${CONFIG.intro?esc(CONFIG.intro).replace("{n}","<b>"+total+" "+TX.sellos+"</b>"):TX.introDef.replace("{n}","<b>"+total+" "+TX.sellos+"</b>")}</p>
+   <div class="progreso"><span>${n}/${total}</span><div class="barra"><i style="width:${n/total*100}%"></i></div></div>
+   <div class="grid">${E.map(e=>`
+     <div class="slot ${tiene(e.id)?"ok":"vacio"}" role="button" tabindex="0" data-id="${e.id}">
+       ${SELLOS[e.id]}<b>${tiene(e.id)?esc(e.nombre):"???"}</b><span>${esc(e.lugar)}</span></div>`).join("")}
+   </div>
+   <div class="acciones">${n===total?`<a class="btn" href="#premio">${R.tipo==="saber"?TX.desbloquear:TX.reclamar}</a>`:
+     `<span class="fuente">${TX.pista}</span>`}</div>`;
+  document.querySelectorAll(".slot").forEach(s=>{
+    const ir=()=>{ if(tiene(+s.dataset.id)) location.hash="sello="+s.dataset.id; };
+    s.onclick=ir; s.onkeydown=e=>{if(e.key==="Enter")ir()};
+  });
+}
+
+function estacion(id){
+  const e=E[id-1], hecho=tiene(id);
+  $("#vista").innerHTML=`
+   <p class="sub">${TX.sello} ${id} ${TX.de} ${E.length} · ${esc(e.lugar)}</p>
+   <div class="tarjeta">
+     <div class="sello-grande" id="sg" style="${hecho?"":"opacity:.15;filter:grayscale(1)"}">${SELLOS[id]}</div>
+     <h2>${esc(e.nombre)}</h2>
+     <p>${esc(e.texto)}</p>
+     <div id="q">${hecho?final(e):`
+       <p><b>${esc(e.pregunta)}</b></p>
+       <div class="opciones">${e.ops.map((o,i)=>`<button class="op" data-i="${i}">${esc(o)}</button>`).join("")}</div>
+       <p class="aviso" id="aviso" aria-live="polite"></p>`}
+     </div>
+   </div>
+   <div class="acciones"><a class="btn sec" href="#">${TX.verPasaporte}</a></div>`;
+  if(hecho) return;
+  document.querySelectorAll(".op").forEach(b=>b.onclick=()=>{
+    if(+b.dataset.i===e.ok){
+      b.classList.add("bien");
+      estado.sellos=[...new Set([...estado.sellos,id])]; guardar(estado);
+      const sg=$("#sg"); sg.style.cssText=""; sg.classList.add("estampar");
+      setTimeout(()=>{$("#q").innerHTML=final(e)},450);
+    } else {
+      b.classList.add("mal"); b.disabled=true;
+      $("#aviso").textContent=TX.casi;
+    }
+  });
+}
+function final(e){
+  const n=estado.sellos.length;
+  return `<p class="dato"><b>${TX.sabias}</b> ${esc(e.dato)}</p><p class="fuente">${TX.fuente}: ${esc(e.fuente)}</p>
+   <p><b>${TX.conseguido.replace("{n}",n).replace("{t}",E.length)}</b></p>
+   ${n===E.length?`<div class="acciones"><a class="btn" href="#premio">${R.tipo==="saber"?TX.desbloquear:TX.reclamar}</a></div>`:""}`;
+}
+
+const R = Object.assign({tipo: CONFIG.codigo ? "cupon" : "saber"}, CONFIG.recompensa||{});
+
+function premio(){
+  if(estado.sellos.length<E.length){ location.hash=""; return; }
+  if(R.tipo==="saber") return saber();
+  if(estado.reclamado) return mostrarCodigo();
+  $("#vista").innerHTML=`
+   <h1>¡Pasaporte completo!</h1>
+   <div class="sello-grande estampar">${SELLOS[6]}</div>
+   <p>Encontraste los ${E.length} sellos. Déjanos tus datos y te mostramos tu premio:
+   <b>${esc(CONFIG.premio)}</b>.</p>
+   <form id="f" class="tarjeta" novalidate>
+     <label for="nom">Nombre</label><input id="nom" type="text" autocomplete="name" required>
+     <label for="mail">Correo electrónico</label><input id="mail" type="email" autocomplete="email" required>
+     <label class="check"><input id="ok" type="checkbox" required>
+       <span>Autorizo al ${esc(CONFIG.hotel)} a tratar mis datos para enviarme información y ofertas, según su
+       <a href="${esc(CONFIG.politicaDatos)}" target="_blank" rel="noopener">política de tratamiento de datos</a> (Ley 1581 de 2012).</span></label>
+     <p class="aviso" id="aviso"></p>
+     <div class="acciones"><button class="btn" type="submit">Ver mi código</button></div>
+   </form>`;
+  $("#f").onsubmit=async ev=>{
+    ev.preventDefault();
+    const nom=$("#nom").value.trim(), mail=$("#mail").value.trim();
+    if(!nom||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)) return $("#aviso").textContent="Escribe tu nombre y un correo válido.";
+    if(!$("#ok").checked) return $("#aviso").textContent="Necesitamos tu autorización para continuar.";
+    if(CONFIG.endpoint){
+      try{ await fetch(CONFIG.endpoint,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},
+             body:JSON.stringify({nombre:nom,correo:mail,sellos:estado.sellos.length,origen:"tour-360",fecha:new Date().toISOString()})}); }
+      catch(e){ /* si falla el envío, igual se muestra el código */ }
+    }
+    estado.reclamado=true; guardar(estado); mostrarCodigo();
+  };
+}
+function mostrarCodigo(){
+  $("#vista").innerHTML=`
+   <h1>Tu premio</h1>
+   <p style="text-align:center">${esc(CONFIG.premio)}</p>
+   <div class="codigo">${esc(CONFIG.codigo)}</div>
+   <p style="text-align:center">Menciona este código al reservar directamente con el hotel.</p>
+   <div class="acciones">
+     ${CONFIG.whatsapp?`<a class="btn" target="_blank" rel="noopener" href="https://wa.me/${esc(CONFIG.whatsapp)}?text=${encodeURIComponent("Hola, completé el "+(CONFIG.titulo||"pasaporte")+" del tour. Mi código es "+CONFIG.codigo)}">Reservar por WhatsApp</a>`:""}
+     <a class="btn sec" href="#">Ver mi pasaporte</a>
+   </div>`;
+}
+/* ====== Recompensa de saber: contenido desbloqueado + certificado (sin datos personales) ====== */
+function saber(){
+  const sec=R.secciones||[];
+  $("#vista").innerHTML=`
+   <h1>${esc(R.titulo||TX.completo)}</h1>
+   <div class="sello-grande estampar">${SELLOS[E.length]}</div>
+   <p>${esc(R.intro||TX.introSaber)}</p>
+   ${sec.map((s,i)=>`<details class="tarjeta saber" ${i===0?"open":""}>
+      <summary><span class="num">${i+1}</span> ${esc(s.titulo)}</summary>
+      <p>${esc(s.texto)}</p>${s.fuente?`<p class="fuente">${TX.fuente}: ${esc(s.fuente)}</p>`:""}
+    </details>`).join("")}
+   ${R.modelo3d?htmlModelo(R.modelo3d):""}
+   <div class="tarjeta" style="margin-top:14px">
+     <h2>${esc((R.certificado||{}).titulo||TX.tuCertificado)}</h2>
+     <p class="fuente">${TX.nombreCert}</p>
+     <label for="nomc" class="oculto">${TX.nombre}</label>
+     <input id="nomc" type="text" maxlength="40" placeholder="${TX.tuNombre}" autocomplete="off"
+       style="width:100%;padding:11px;border-radius:8px;border:2px solid #d9cfba;font:inherit;background:var(--papel)">
+     <div class="acciones">
+       <button class="btn" id="bcert">${TX.descargar}</button>
+       ${navigator.share?`<button class="btn sec" id="bshare">${TX.compartir}</button>`:""}
+     </div>
+     <canvas id="cv" width="1080" height="1350" style="width:100%;margin-top:12px;border-radius:10px;display:none"></canvas>
+   </div>
+   <div class="acciones"><a class="btn sec" href="#">${TX.verPasaporte}</a></div>`;
+  $("#nomc").value=estado.nombre||"";
+  const listo=async()=>{ estado.nombre=$("#nomc").value.trim(); guardar(estado); await dibujarCert(); $("#cv").style.display="block"; };
+  $("#bcert").onclick=async()=>{ await listo(); const a=document.createElement("a");
+    a.download=(CONFIG.id||"pasaporte")+"-certificado.png"; a.href=$("#cv").toDataURL("image/png"); a.click(); };
+  if($("#bshare")) $("#bshare").onclick=async()=>{ await listo();
+    $("#cv").toBlob(b=>{ const f=new File([b],"certificado.png",{type:"image/png"});
+      const d={title:CONFIG.titulo||"Pasaporte",text:(R.certificado||{}).compartir||"",files:[f]};
+      (navigator.canShare&&navigator.canShare(d)?navigator.share(d):navigator.share({title:d.title,text:d.text})).catch(()=>{}); }); };
+}
+function svgImg(svg){ return new Promise(r=>{ const i=new Image(); i.onload=()=>r(i); i.onerror=()=>r(null);
+  i.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(svg.replace("<svg ","<svg xmlns=\"http://www.w3.org/2000/svg\" ")); }); }
+async function dibujarCert(){
+  const c=$("#cv"), x=c.getContext("2d"), W=c.width, H=c.height, cert=R.certificado||{};
+  try{ await document.fonts.ready; }catch(e){}
+  x.fillStyle="#F3EDE0"; x.fillRect(0,0,W,H);
+  x.strokeStyle=A; x.lineWidth=18; x.strokeRect(30,30,W-60,H-60);
+  x.strokeStyle=O; x.lineWidth=4; x.strokeRect(62,62,W-124,H-124);
+  const franja=["#1E1B18",O,A,"#EDE6D6"]; for(let i=0;i<W;i+=40){ x.fillStyle=franja[(i/40)%4]; x.fillRect(i,0,40,24); x.fillRect(i,H-24,40,24); }
+  x.textAlign="center"; x.fillStyle=A;
+  x.font="800 64px Cinzel, Georgia, serif"; x.fillText(CONFIG.titulo||"Pasaporte",W/2,190);
+  x.fillStyle="#6E726A"; x.font="32px Montserrat, Arial, sans-serif"; x.fillText((CONFIG.hotel||"")+(CONFIG.lugar?" · "+CONFIG.lugar:""),W/2,245);
+  x.fillStyle="#2A2420"; x.font="34px Montserrat, Arial, sans-serif"; x.fillText(cert.otorga||TX.certifica,W/2,340);
+  x.fillStyle="#1E1B18"; x.font="800 76px Cinzel, Georgia, serif"; x.fillText(estado.nombre||TX.explorador,W/2,440);
+  x.fillStyle=A; x.font="800 46px Cinzel, Georgia, serif"; x.fillText(cert.titulo||TX.completoCert,W/2,530);
+  x.fillStyle="#2A2420"; x.font="30px Montserrat, Arial, sans-serif";
+  const lineas=(cert.texto||"").split(/\s+/).reduce((L,w)=>{const t=(L[L.length-1]+" "+w).trim(); if(x.measureText(t).width>W-240) L.push(w); else L[L.length-1]=t; return L;},[""]);
+  lineas.forEach((l,i)=>x.fillText(l,W/2,600+i*44));
+  const imgs=await Promise.all(E.map(e=>svgImg(SELLOS[e.id]))); const n=E.length, s=200, gap=20, porFila=4;
+  imgs.forEach((im,i)=>{ if(!im) return; const fila=Math.floor(i/porFila), enFila=Math.min(porFila,n-fila*porFila);
+    const x0=(W-(enFila*s+(enFila-1)*gap))/2+(i%porFila)*(s+gap); x.drawImage(im,x0,780+fila*(s+gap),s,s); });
+  x.fillStyle="#6E726A"; x.font="26px Montserrat, Arial, sans-serif";
+  x.fillText(new Date().toLocaleDateString(TX.fecha,{year:"numeric",month:"long",day:"numeric"}),W/2,H-80);
+}
+
+document.getElementById("pie").innerHTML=(CONFIG.pie||"")+
+  `<br>${esc(CONFIG.aviso||TX.aviso)}`;
+if(CONFIG.titulo) document.title=CONFIG.titulo;
+ruta();
+</script>
+</body>
+</html>

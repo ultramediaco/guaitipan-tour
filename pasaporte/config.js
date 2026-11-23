@@ -1,0 +1,215 @@
+/* Generado por pasaporte.py desde config.json. Edita config.json y vuelve a ejecutar. */
+window.PASAPORTE = {
+ "config": {
+  "id": "guaitipan",
+  "titulo": "Pasaporte Agustiniano",
+  "hotel": "Hotel Guaitipán",
+  "lugar": "San Agustín, Huila",
+  "tema": "san-agustin",
+  "intro": "Recorre el tour y busca los {n} de piedra escondidos en los panoramas. En cada uno responde una pregunta. Con los siete desbloqueas «El saber de la piedra» y tu certificado.",
+  "pie": "Ilustraciones originales inspiradas en la estatuaria agustiniana. Las estatuas son patrimonio de la Nación (Colombia) y el Parque Arqueológico es Patrimonio Mundial desde 1995.<br>Datos: <i>Guía para visitantes</i>, ICANH (2011) · Banco de la República.",
+  "whatsapp": "",
+  "colores": {
+   "almagre": "#9E3B26",
+   "ocre": "#C99A2E",
+   "carbon": "#1E1B18"
+  },
+  "recompensa": {
+   "tipo": "saber",
+   "titulo": "El saber de la piedra",
+   "intro": "Encontraste los siete sellos. Tu premio es lo que guarda este lugar: lo que sabemos de quienes tallaron la piedra, del agua que nace aquí y de la gente que hoy vive el territorio. Y también lo que sigue siendo un misterio.",
+   "secciones": [
+    {
+     "titulo": "Quiénes tallaron la piedra",
+     "texto": "Las estatuas y los montículos funerarios se hicieron en el periodo Clásico Regional, entre el año 1 y el 900 d.C. Marcaban las tumbas de personajes importantes. Hacia el 900 d.C. dejaron de construirse tumbas monumentales, y antes de 1530 la región quedó despoblada por causas que todavía no se conocen.",
+     "fuente": "Guía para visitantes, ICANH (2011), pp. 17 y 22"
+    },
+    {
+     "titulo": "Lo que sigue siendo misterio",
+     "texto": "Que la estatuaria represente chamanes convertidos en jaguar es una interpretación de algunos investigadores, no un hecho comprobado. Tampoco hay una cifra segura del total de estatuas. Lo que sí se sabe: los habitantes actuales de la zona no descienden directamente de los escultores.",
+     "fuente": "Guía ICANH (2011), p. 12; debate Reichel-Dolmatoff / Bruhns (1992)"
+    },
+    {
+     "titulo": "La Estrella Fluvial",
+     "texto": "San Agustín está en el Macizo Colombiano, donde nacen los ríos Magdalena, Cauca, Caquetá y Patía. Muy cerca del hotel, en el Estrecho del Magdalena, el río más importante de Colombia pasa por un canal de roca de apenas 2,20 metros de ancho.",
+     "fuente": "ICANH, catálogo «Navegando por una nación» (2025)"
+    },
+    {
+     "titulo": "Agua y piedra",
+     "texto": "En la Fuente de Lavapatas el agua corre por canales y pozos tallados en la roca, entre figuras de serpientes, lagartos y ranas. Se cree que fue un lugar de ceremonias y baños rituales. El investigador Héctor Llanos relaciona las ranas, serpientes y lagartos de la estatuaria con el agua.",
+     "fuente": "Guía ICANH (2011), pp. 31–32; Llanos Vargas, Boletín Museo del Oro n.º 22 (1988)"
+    },
+    {
+     "titulo": "El pueblo Yanacona hoy",
+     "texto": "El pueblo indígena con presencia hoy en San Agustín e Isnos es el Yanacona (Yanakuna). Tiene un resguardo en San Agustín y una comunidad en San José, Isnos, y vive un proceso de recuperación de su identidad que llama «Reconstruyendo la casa». Son pueblos distintos de los escultores antiguos y merecen conocerse por su propia historia.",
+     "fuente": "Mincultura, Caracterización del pueblo Yanacona (Plan de Salvaguarda 2014)"
+    },
+    {
+     "titulo": "Sabores con origen",
+     "texto": "El Huila tiene tres productos con denominación de origen: el bizcocho de achira (2012), el café de Huila (2013) y la cholupa (2007). En San Agustín se suman el asado huilense, el sancocho y los jugos de gulupa; en Isnos, la panela y sus dulces.",
+     "fuente": "Las2orillas; MinCIT (2018); Colombia Travel"
+    },
+    {
+     "titulo": "El oficio de la talla",
+     "texto": "La talla en piedra es el oficio que más identifica a San Agustín, y hay talleres donde los visitantes tallan con un maestro artesano. Las artesanías inspiradas en piezas arqueológicas deben llevar grabada la palabra «réplica»: las piezas originales son patrimonio de la Nación y no se venden.",
+     "fuente": "Guía ICANH (2011), p. 46 (Decreto 833 de 2002); El Tiempo"
+    },
+    {
+     "titulo": "Antes de ir a los parques",
+     "texto": "El Parque Arqueológico de San Agustín abre de 8:00 a 15:00 y cierra el primer martes de cada mes. El Alto de los Ídolos y el Alto de las Piedras abren de 8:00 a 16:00. Tarifas 2026: 0.000 nacionales, 5.000 reducida y 5.000 extranjeros. El último viernes de cada mes la entrada es libre (hasta 700 personas). Confirma antes de ir.",
+     "fuente": "ICANH, Resolución 1702 de 2025"
+    }
+   ],
+   "certificado": {
+    "otorga": "certifica que",
+    "titulo": "Guardián(a) del Saber de la Piedra",
+    "texto": "encontró los siete sellos del Pasaporte Agustiniano y conoció la historia de la piedra, el agua y la gente de San Agustín.",
+    "compartir": "Completé el Pasaporte Agustiniano en el tour 360 del Hotel Guaitipán."
+   },
+   "modelo3d": {
+    "src": "modelos/estatua.glb",
+    "titulo": "La estatua guardiana",
+    "texto": "Gírala con el dedo y acércate a sus rasgos. En un móvil compatible puedes ponerla en tu propio espacio con realidad aumentada.",
+    "credito": "Reconstrucción digital aproximada generada con inteligencia artificial e inspirada en la estatuaria agustiniana. No es una réplica científica de una pieza concreta.",
+    "ar": true
+   }
+  },
+  "bienvenida": {
+   "titulo": "Bienvenido a San Agustín",
+   "parrafos": [
+    "Estás en tierra de piedra tallada. Entre el año 1 y el 900 d.C., en estas montañas del Alto Magdalena, se levantaron centenares de estatuas para guardar las tumbas de personajes importantes.",
+    "El hotel lleva el nombre de Guaitipán, la cacica yalcona recordada como «La Gaitana». Recorre sus pasillos, habitaciones y alrededores, y asómate al Parque Arqueológico y a La Chaquira."
+   ],
+   "cierre": "Cierra esta ventana con la ✕ para empezar el recorrido. Puedes volver al pasaporte con el botón «Pasaporte» del menú."
+  },
+  "guia": {
+   "nombre": "Lucía",
+   "carpeta": "guia/",
+   "clips": {
+    "bienvenida": "00_bienvenida",
+    "1": "01_guaitipan",
+    "2": "02_guardianes",
+    "3": "03_lavapatas",
+    "4": "04_ave_serpiente",
+    "5": "05_piedra_volcanica",
+    "6": "06_doble_yo",
+    "7": "07_chaquira",
+    "final": "08_final"
+   }
+  }
+ },
+ "estaciones": [
+  {
+   "id": 1,
+   "nombre": "Guaitipán",
+   "lugar": "Entrada del hotel",
+   "texto": "El hotel lleva el nombre de Guaitipán, la cacica yalcona recordada como «La Gaitana». Hacia 1539, en Timaná, encabezó la resistencia indígena contra los conquistadores.",
+   "pregunta": "¿Quién fue Guaitipán?",
+   "ops": [
+    "Una escultora de las estatuas de piedra",
+    "Una cacica yalcona que lideró la resistencia hacia 1539",
+    "El nombre antiguo del río Magdalena"
+   ],
+   "ok": 1,
+   "dato": "Las estatuas son muchos siglos más antiguas que Guaitipán: se tallaron entre el año 1 y el 900 d.C.",
+   "fuente": "Enciclopedia Banrepcultural; Guía ICANH 2011, p. 17",
+   "panorama": "Entrada"
+  },
+  {
+   "id": 2,
+   "nombre": "Los guardianes",
+   "lugar": "Parque Arqueológico I",
+   "texto": "En las tumbas monumentales es frecuente encontrar una estatua grande acompañada por dos más pequeñas a sus lados.",
+   "pregunta": "¿Cómo se agrupan a menudo las estatuas de las tumbas?",
+   "ops": [
+    "En círculos de doce figuras",
+    "Una estatua grande flanqueada por dos más pequeñas",
+    "Siempre en parejas de animales"
+   ],
+   "ok": 1,
+   "dato": "Las estatuas marcaban las tumbas de personajes importantes, bajo montículos de tierra.",
+   "fuente": "Guía ICANH 2011, pp. 17 y 20",
+   "panorama": "Parque Arqueológico 1"
+  },
+  {
+   "id": 3,
+   "nombre": "Lavapatas",
+   "lugar": "Parque Arqueológico II",
+   "texto": "La Fuente de Lavapatas está tallada en el lecho de una quebrada: canales, pozos y figuras labradas en la roca por donde corre el agua.",
+   "pregunta": "¿Qué figuras predominan en las tallas de Lavapatas?",
+   "ops": [
+    "Reptiles y anfibios",
+    "Caballos y vacas",
+    "Barcos y peces de mar"
+   ],
+   "ok": 0,
+   "dato": "Se descubrió en 1937. No es una tumba: se cree que fue un lugar de ceremonias y baños rituales.",
+   "fuente": "Guía ICANH 2011, pp. 31–32",
+   "panorama": "Parque Arqueológico 2"
+  },
+  {
+   "id": 4,
+   "nombre": "El ave y la serpiente",
+   "lugar": "Parque Arqueológico III",
+   "texto": "En la Mesita B, la estatua número 22 muestra un ave —un búho o un águila— que sostiene una serpiente.",
+   "pregunta": "¿Qué sostiene el ave de la estatua 22 de la Mesita B?",
+   "ops": [
+    "Un pez",
+    "Una serpiente",
+    "Una mazorca"
+   ],
+   "ok": 1,
+   "dato": "La Mesita B tuvo al menos 63 estatuas repartidas en tres montículos.",
+   "fuente": "Guía ICANH 2011, fig. 10 y p. 29",
+   "panorama": "Parque Arqueológico 3"
+  },
+  {
+   "id": 5,
+   "nombre": "Piedra volcánica",
+   "lugar": "Parque Arqueológico IV",
+   "texto": "Las estatuas y los montículos funerarios pertenecen al periodo Clásico Regional. Se tallaron en duras piedras volcánicas.",
+   "pregunta": "¿Entre qué años se tallaron las estatuas?",
+   "ops": [
+    "Entre el año 1 y el 900 d.C.",
+    "Entre 1600 y 1700",
+    "Hace apenas 200 años"
+   ],
+   "ok": 0,
+   "dato": "La huella humana más antigua del Alto Magdalena es un fogón de hace unos 5.300 años (3300 a.C.) en el Alto de Lavapatas.",
+   "fuente": "Guía ICANH 2011, pp. 17, 18 y 33",
+   "panorama": "Parque Arqueológico 4"
+  },
+  {
+   "id": 6,
+   "nombre": "El doble yo",
+   "lugar": "Isnos",
+   "texto": "En Isnos están el Alto de los Ídolos y el Alto de las Piedras. Allí se encuentra «El doble yo»: un personaje con largos colmillos que lleva otra figura sobre la cabeza.",
+   "pregunta": "¿En qué municipio está «El doble yo»?",
+   "ops": [
+    "San Agustín",
+    "Isnos",
+    "Neiva"
+   ],
+   "ok": 1,
+   "dato": "El Alto de los Ídolos tiene sarcófagos de piedra de hasta 3 metros de largo.",
+   "fuente": "Guía ICANH 2011, pp. 41 y 44",
+   "panorama": "Isnos"
+  },
+  {
+   "id": 7,
+   "nombre": "La Chaquira",
+   "lugar": "Cañón del Magdalena",
+   "texto": "En La Chaquira hay relieves tallados en la roca que miran al cañón del río Magdalena, unos 200 metros más abajo.",
+   "pregunta": "¿Qué destaca en los relieves de La Chaquira?",
+   "ops": [
+    "Tres figuras humanas con los brazos abiertos",
+    "Un calendario solar",
+    "Un mapa del río"
+   ],
+   "ok": 0,
+   "dato": "La Chaquira no es un sitio funerario. Muy cerca, en el Estrecho del Magdalena, el río pasa por una grieta de menos de 3 metros.",
+   "fuente": "Guía ICANH 2011, pp. 37 y 39",
+   "panorama": "La Chaquira"
+  }
+ ]
+};

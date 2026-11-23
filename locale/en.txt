@@ -1,0 +1,135 @@
+#: locale=en
+
+## Acción
+
+### URL
+PopupWebFrameBehaviour_1512F6F1_49F4_AD78_4143_B68EC066E7DC.url = pasaporte/index.html?lang=en
+PopupWebFrameBehaviour_354588D8_0C44_1A22_41C1_C493E15CEE4A.url = pasaporte/index.html?lang=en
+PopupWebFrameBehaviour_0539E5A3_D3AB_899D_4140_EF851C9C9941.url = pasaporte/index.html?lang=en#bienvenida
+PopupWebFrameBehaviour_0539E5A3_D3AB_899D_4140_EF851C9C9941.url = pasaporte/index.html?lang=en#bienvenida
+PopupWebFrameBehaviour_370FC8D8_1BB7_0B3C_412C_600E93E5A5E8.url = pasaporte/index.html?lang=en#sello=1
+PopupWebFrameBehaviour_3FF78B80_8D77_9433_418C_C9FDEB89D9B2.url = pasaporte/index.html?lang=en#sello=2
+PopupWebFrameBehaviour_B90BC878_659E_0FD4_41A7_6F3351A737B9.url = pasaporte/index.html?lang=en#sello=3
+PopupWebFrameBehaviour_BFACB644_62D9_CF64_4104_90278BF88BCE.url = pasaporte/index.html?lang=en#sello=4
+PopupWebFrameBehaviour_1C880B82_925C_3F46_41AB_74C89259D0AB.url = pasaporte/index.html?lang=en#sello=5
+PopupWebFrameBehaviour_60906AC3_013E_1E3F_4167_E97006BC2BA9.url = pasaporte/index.html?lang=en#sello=6
+PopupWebFrameBehaviour_0F194F86_67F8_BBFE_4199_2D1680E283D9.url = pasaporte/index.html?lang=en#sello=7
+
+## Hotspot
+
+### Tooltip
+HotspotPanoramaOverlayArea_915A6FD1_F0E8_37D3_4138_29E6D4BC417F.toolTip = Bajar a la planta 1
+HotspotPanoramaOverlayArea_ED749915_964A_FC31_4137_D978D21C60B3.toolTip = Entrance
+HotspotPanoramaOverlayArea_48DEB614_E145_24A3_415D_4217658F4797.toolTip = Entrance
+HotspotPanoramaOverlayArea_80B2D1C0_BBF2_F541_413D_ABE0582A0F87.toolTip = Enter the hotel
+HotspotPanoramaOverlayArea_18678458_5FF2_380C_4116_26C21135A739.toolTip = Enter the hotel
+HotspotPanoramaOverlayArea_9A65F716_6858_8070_4117_6F490B61975B.toolTip = Esquina 108
+HotspotPanoramaOverlayArea_605BC601_FE32_4C7F_413A_FC1FD65B3166.toolTip = Corner 201
+HotspotPanoramaOverlayArea_466B1FAB_A71A_6D5E_416E_16C6458B469A.toolTip = Rooms
+HotspotPanoramaOverlayArea_89CC1361_C794_6D5D_418B_8CE8812D106D.toolTip = Hotel from above
+HotspotPanoramaOverlayArea_47B641B4_DF55_A445_419B_C7349F6D5282.toolTip = The guardian statue (3D)
+HotspotPanoramaOverlayArea_9F38E5AB_D241_5D84_4137_FD68B47EF00C.toolTip = The guardian statue (3D)
+HotspotPanoramaOverlayArea_62A4D577_DF4A_2A05_41C1_4A2ED71DCA54.toolTip = Archaeological Park
+HotspotPanoramaOverlayArea_9559F9FC_EC97_C7D4_417E_495117BE5E4D.toolTip = Archaeological Park 2
+HotspotPanoramaOverlayArea_C32DDF7E_648D_EEA7_414E_80E1EDB1D107.toolTip = Archaeological Park 2
+HotspotPanoramaOverlayArea_46700821_CCB7_A2EA_413F_02F69FA2AF4F.toolTip = Archaeological Park 3
+HotspotPanoramaOverlayArea_B3FC1AD9_6D70_E156_41B5_76CFEB08F77D.toolTip = Archaeological Park 3
+HotspotPanoramaOverlayArea_8B92DC10_66B5_AE09_41B4_80299934D857.toolTip = Archaeological Park 4
+HotspotPanoramaOverlayArea_CC1E3483_125E_5FAA_41BC_B87624BD077A.toolTip = Hallway 202
+HotspotPanoramaOverlayArea_D66AA9BD_9822_5653_4124_DC35F7EF7E81.toolTip = Hallway 206
+HotspotPanoramaOverlayArea_EF9CAC30_84E7_D779_4170_0C7C5924EF6C.toolTip = Restaurant
+HotspotPanoramaOverlayArea_9BBCFD13_C052_B0F7_4171_BB48616A61C1.toolTip = Stairway exit
+HotspotPanoramaOverlayArea_86646C1A_9038_D58D_4168_B4D01B500806.toolTip = Location (aerial view)
+HotspotPanoramaOverlayArea_6E106BBA_6E80_611F_4179_AF50208C48BB.toolTip = Location (aerial view)
+
+## Media
+
+### Título
+panorama_78375FA5_7403_B36C_41BE_568D8AE53C64.label = Entrance
+panorama_7FCDBF22_7407_B367_41B6_695CE20A1236.label = Corner 101
+panorama_7FCD39EE_7406_DEFC_4194_A2BA440DEF18.label = Corner 103
+panorama_7FCD8A7D_7407_5DDC_41D9_0081617028E1.label = Corner 108
+panorama_7FCF1E1D_7402_D55C_41C6_AE4B33DEC605.label = Corner 201
+panorama_7FCCD22A_7406_CD64_41CF_EA1EC34B617A.label = Corner 203
+panorama_7FD32B7C_741D_73DC_41DB_006A61BD9E7F.label = Corner 204
+panorama_7FCD21D7_7403_4F2C_41AB_0C77202B63FF.label = Corner 206
+panorama_65D88D76_740E_B7EC_41CE_27D0283CB3E4.label = Room 101
+panorama_65DD4D70_7403_57E4_41CC_241D0AD72C09.label = Room 102
+panorama_65CEE1B2_741D_4F64_41BB_0B16AC02A4CF.label = Room 103
+panorama_666E9579_741D_57E4_41B0_DDBC826F7EDC.label = Room 107
+panorama_65DB53C8_7403_F324_41CF_C2309AD83CF6.label = Room 108
+panorama_66B63697_7405_F52C_4185_14D8809E23FB.label = Room 201
+panorama_66F5704C_7405_4D3C_41CD_B7B43BB28997.label = Room 202
+panorama_667E5979_7403_BFE4_41C1_6F0C798E41A0.label = Room 203
+panorama_671B829C_7406_CD5C_41C0_F1E8BCBB2060.label = Room 204
+panorama_668BAE9D_7405_555C_41CB_39426A32DC6B.label = Room 205
+panorama_6685802F_7402_CD7C_41B6_0F9057D10781.label = Room 206
+panorama_7837BA57_7403_FD2C_41C5_0B5F8B87732D.label = Hotel from above
+panorama_7FD3C784_741D_532C_41C6_C2276A2B6386.label = Isnos
+panorama_78A1E797_7403_D32C_41A4_9A5A54DE4C3B.label = La Chaquira
+model_66771FBE_75D5_B82C_41CD_9BD6D45DE433.label = The guardian statue (3D)
+panorama_7FD2DFAA_741D_5364_41D9_0D7E8D7FA5D5.label = Archaeological Park 1
+panorama_7FD303C8_741D_D324_4193_BC4DFEA3E241.label = Archaeological Park 2
+panorama_7FD347F7_741D_F2ED_41BB_188D79ADF93F.label = Archaeological Park 3
+panorama_7FD30BD2_741D_D324_41D5_2BB31CD6461A.label = Archaeological Park 4
+panorama_7FCD9287_7407_CD2C_41BB_EDB8B9A67F60.label = Hallway 101
+panorama_7FCD1ED1_7407_5524_41B5_C43E92595B32.label = Hallway 102
+panorama_6172345C_7407_D5DC_41D1_C9B3B538A1C9.label = Hallway 103
+panorama_66A2047A_7403_B5E4_41D0_749004AA0F06.label = Hallway 107
+panorama_7FCD630D_7407_733C_41D7_1EF5B6A12FCC.label = Hallway 108
+panorama_7FCF315B_7405_4F24_41C1_AF1D784B1000.label = Hallway 201
+panorama_7FCF63F3_7405_F2E4_41D5_F223F7AEC01E.label = Hallway 202
+panorama_7FCF0604_7405_552C_41C5_A0AE01528651.label = Hallway 203
+panorama_7FCD0C61_7402_D5E4_41DA_8EBC7CD6826C.label = Hallway 204
+panorama_7FCDDB0F_7403_B33D_4190_B49105243EBE.label = Hallway 205
+panorama_7FCD6918_7403_5F24_41D2_539365CADE8B.label = Hallway 206
+panorama_64B725EA_7402_B6E4_41D2_EC552DD75085.label = Restaurant
+panorama_7FCEE5C4_7403_772C_41D5_EECA9B471C55.label = Stairway exit
+panorama_7837E48E_7403_553C_41D4_826A9369649C.label = Location (aerial view)
+
+## Skin
+
+### Botón
+Button_9E61578A_BF74_CC54_41D0_C54E5933CA42.label = Archaeology
+Button_9E61578A_BF74_CC54_41D0_C54E5933CA42.pressedLabel = Archaeology
+Button_9E61578A_BF74_CC54_41D0_C54E5933CA42_mobile.label = Archaeology
+Button_9E61578A_BF74_CC54_41D0_C54E5933CA42_mobile.pressedLabel = Archaeology
+Button_FD3F4612_AAB6_39BF_418C_C2D5459BFD4B_mobile.label = Español
+Button_9EBE30FF_78E4_970D_4193_C64A683F5198.label = Español
+Button_9E67E788_BF74_CC54_41D0_56F2C1A46A69.label = Rooms
+Button_9E67E788_BF74_CC54_41D0_56F2C1A46A69_mobile.label = Rooms
+Button_9E674786_BF74_CC5C_41BB_6474239E3CB2.label = Arrival
+Button_9E674786_BF74_CC5C_41BB_6474239E3CB2_mobile.pressedLabel = Arrival
+Button_9E674786_BF74_CC5C_41BB_6474239E3CB2.pressedLabel = Arrival
+Button_9E674786_BF74_CC5C_41BB_6474239E3CB2_mobile.label = Arrival
+Button_5AB202F6_1B61_9742_417B_FB1CA764E8A6.label = Passport
+Button_A6E69DB4_AD98_4108_412B_DCBD65528F29_mobile.label = Passport
+Button_9E60A789_BF74_CC54_4195_FDD694FEA581.label = Hallways
+Button_9E60A789_BF74_CC54_4195_FDD694FEA581_mobile.label = Hallways
+Button_9E60A789_BF74_CC54_4195_FDD694FEA581.pressedLabel = Hallways
+Button_9E60A789_BF74_CC54_4195_FDD694FEA581_mobile.pressedLabel = Hallways
+Button_7DBCA382_7065_343F_41DB_48D975E3D9EC.label = TOUR
+Button_7DBCA382_7065_343F_41DB_48D975E3D9EC_mobile.label = TOUR
+Button_9E61C78C_BF74_CC6C_41D5_5413C0B6EFC7.label = Territory
+Button_9E61C78C_BF74_CC6C_41D5_5413C0B6EFC7_mobile.label = Territory
+Button_9E61D78D_BF74_CC6C_41CD_0C36B72D93B2.label = All
+Button_9E61D78D_BF74_CC6C_41CD_0C36B72D93B2_mobile.label = All
+Button_F01877F7_C7BF_4BBD_41BB_741602CF73DC_mobile.label = BACK
+Button_F01877F7_C7BF_4BBD_41BB_741602CF73DC.label = BACK
+
+### Texto Multilínea
+HTMLText_DC319146_C473_208B_41B4_BDAD25BF866B.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;font-size:1.9699999999999998vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:1.97vmin;font-family:'Montserrat Black';">{{subtitle}}</SPAN></SPAN></DIV></div>
+HTMLText_DA3037D7_C45D_24A9_41C6_11069F8D7AF4.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;font-size:2.6199999999999997vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:2.62vmin;font-family:'Montserrat Black';">{{subtitle}}</SPAN></SPAN></DIV></div>
+HTMLText_DA3037D7_C45D_24A9_41C6_11069F8D7AF4_mobile.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;font-size:3.61vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="font-size:3.61vmin;font-family:'Montserrat Black';">{{subtitle}}</SPAN></SPAN></DIV></div>
+HTMLText_7DB2E382_7065_343F_41C2_951F708170F1_mobile.html = <div style="text-align:left; color:#000; "><p STYLE="margin:0; line-height:16px;"><BR STYLE="display:inline-block; letter-spacing:0px; white-space:pre-wrap;color:#000000;font-size:16px;font-family:Arial, Helvetica, sans-serif;"/></p></div>
+HTMLText_7DB2E382_7065_343F_41C2_951F708170F1.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-align:left;font-size:15px;"><SPAN STYLE="color:#ffffff;font-size:15px;font-family:'Cinzel';">HOTEL GUAITIPÁN</SPAN></DIV><DIV STYLE="text-align:left;font-size:12px;"><SPAN STYLE="color:#ffffff;font-size:12px;font-family:'Montserrat';">San Agustín, Huila · Colombia</SPAN></DIV><DIV STYLE="text-align:left;font-size:12px;"><SPAN STYLE="color:#C99A2E;font-size:12px;font-family:'Montserrat';">Agustinian Passport</SPAN></DIV></div>
+HTMLText_D9F0B796_C45D_64AB_41C2_9F9C8C6BB833_mobile.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-shadow:0px 0px 4.5px rgba(0,0,0,1);text-align:left;font-size:10.28vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="color:#ffffff;font-size:10.28vmin;font-family:'Cinzel';">{{title}}</SPAN></SPAN></DIV></div>
+HTMLText_DC317147_C473_2089_41E1_A2A60EF4B565.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-shadow:0px 0px 9px rgba(0,0,0,1);text-align:left;font-size:4.369999999999999vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="color:#ffffff;font-size:4.37vmin;font-family:'Cinzel';">{{title}}</SPAN></SPAN></DIV></div>
+HTMLText_D9F0B796_C45D_64AB_41C2_9F9C8C6BB833.html = <div style="text-align:left; color:#000; "><DIV STYLE="text-shadow:0px 0px 9px rgba(0,0,0,1);text-align:left;font-size:6.56vmin;"><SPAN STYLE="display:inline-block; letter-spacing:0vmin; white-space:pre-wrap;color:#000000;font-family:Arial, Helvetica, sans-serif;"><SPAN STYLE="color:#ffffff;font-size:6.56vmin;font-family:'Cinzel';">{{title}}</SPAN></SPAN></DIV></div>
+
+## Tour
+
+### Descripción
+
+### Título
+tour.name = Hotel Guaitipán · San Agustín

@@ -1,0 +1,110 @@
+{
+ "00_bienvenida": {
+  "duracion": 31.23,
+  "clave": "#00833B",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "01_guaitipan": {
+  "duracion": 22.4,
+  "clave": "#00833B",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "02_guardianes": {
+  "duracion": 17.32,
+  "clave": "#00833B",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "03_lavapatas": {
+  "duracion": 20.36,
+  "clave": "#00833B",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "04_ave_serpiente": {
+  "duracion": 13.31,
+  "clave": "#00833C",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "05_piedra_volcanica": {
+  "duracion": 15.7,
+  "clave": "#00833B",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "06_doble_yo": {
+  "duracion": 17.75,
+  "clave": "#00833B",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "07_chaquira": {
+  "duracion": 20.01,
+  "clave": "#00833C",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ },
+ "08_final": {
+  "duracion": 21.28,
+  "clave": "#00823C",
+  "ancho": 540,
+  "alto": 960,
+  "recorte": [
+   0,
+   0,
+   720,
+   1280
+  ]
+ }
+}
